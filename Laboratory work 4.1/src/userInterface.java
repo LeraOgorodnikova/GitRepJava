@@ -4,8 +4,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class userInterface {
-    int numberPoint;
-    polygon line;
+    private int numberPoint;
+    private polygon line;
     public void EqualPoint(point newPoint){
         ArrayList points=line.findPoints(newPoint);
         for (int i=0;i<points.size();i++){
