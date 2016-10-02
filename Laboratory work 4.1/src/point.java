@@ -1,15 +1,15 @@
 /**
  * Created by 1 on 26.09.2016.
  */
-import java.util.Scanner;
-public class point {
+
+public class Point {
     private float x;
     private float y;
-    point(){
+    Point(){
         x=0f;
         y=0f;
     }
-    public float calculateLenght(point newPoint){
+    public float calculateLenght(Point newPoint){
         return (float)Math.sqrt(Math.abs(Math.pow((newPoint.getX()-this.getX()), 2)) + Math.abs(Math.pow((newPoint.getY() - this.getY()),2)));
     }
     public float getX() {
@@ -24,7 +24,7 @@ public class point {
     public void setY(float y) {
         this.y = y;
     }
-    public void movement(point newpoint){
+    public void movement(Point newpoint){
         this.x=newpoint.getX();
         this.y=newpoint.getY();
     }
@@ -32,13 +32,13 @@ public class point {
         this.setX(x);
         this.setY(y);
     }
-    public String printOut() {
+    public String toString() {
         String out= String.format("%.3f",this.x);
         out += ":";
         out += String.format("%.3f",this.y);
         return out;
     }
-    public boolean comparison(point com1,point com2){
+    public boolean Equals(Point com1, Point com2){
         if ((com1.getX()==com2.getX())&&(com1.getY()==com2.getY())){
             return true;
         }

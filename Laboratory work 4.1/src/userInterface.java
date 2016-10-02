@@ -3,13 +3,13 @@
  */
 import java.util.ArrayList;
 import java.util.Scanner;
-public class userInterface {
+public class UserInterface {
     private int numberPoint;
-    private polygon line;
-    public void EqualPoint(point newPoint){
+    private Polygon line;
+    public void EqualPoint(Point newPoint){
         ArrayList points=line.findPoints(newPoint);
         for (int i=0;i<points.size();i++){
-            point tempPoint=(point)points.get(i);
+            Point tempPoint=(Point)points.get(i);
             System.out.println(tempPoint.getX()+","+tempPoint.getY()+"-");
         }
     }
@@ -18,10 +18,10 @@ public class userInterface {
         System.out.printf("%.2f", line.lenghtPolygon());
     }
     public void InfoLine(){
-        System.out.print("Ваша линия: "+line.InfoPoints());
+        System.out.print("Ваша линия: "+line.toString());
     }
-    public point addPoint(){
-        point newPoint=new point();
+    public Point addPoint(){
+        Point newPoint=new Point();
         float x=0f,y=0f;
         Scanner sc = new Scanner(System.in);
         System.out.print("Введите x: ");
@@ -45,11 +45,11 @@ public class userInterface {
                 System.out.print("Введите количество точек: ");
                 if (sc.hasNextInt()){
                     int numberPoints=sc.nextInt();
-                    line=new polygon(numberPoints);
+                    line=new Polygon(numberPoints);
                 }
             }
             else {
-                line=new polygon(15);
+                line=new Polygon(15);
             }
         }
     }
@@ -60,7 +60,7 @@ public class userInterface {
             setNumberPoint();
             int choice = 1;
             while (choice==1){
-                point newPoint=addPoint();
+                Point newPoint=addPoint();
                 line.addPoint(newPoint);
                 System.out.print("1-добавить еще точку, 0-больше не добавлять: ");
                 if (sc.hasNextInt()) {
@@ -70,10 +70,10 @@ public class userInterface {
             InfoLine();//
             LenghtLine();//
             System.out.print("\nЗадайте свою точку: ");
-            point newPoint=addPoint();
+            Point newPoint=addPoint();
             System.out.print("Задать точку плоскости? 1-да, 0-нет ");
             int planePoinChoice=0;
-            point pointPlane=new point();
+            Point pointPlane=new Point();
             if (sc.hasNextInt()) {
                 planePoinChoice = sc.nextInt();
                 if (planePoinChoice==1) {

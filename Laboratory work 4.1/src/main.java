@@ -1,9 +1,9 @@
 /**
  * Created by 1 on 26.09.2016.
  */
-public class main {
+public class Main {
     public static void main(String str[]) {
-        userInterface inter=new userInterface();
+        UserInterface inter=new UserInterface();
         inter.workWithUser();
     }
 }
