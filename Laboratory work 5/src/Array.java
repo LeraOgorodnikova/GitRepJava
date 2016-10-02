@@ -28,7 +28,6 @@ public class Array {
 
     public Task getTaskWithHighestPriorityNotDelete(){
         Task result=new Task();
-        result.setPriority(0);//убрать
         for (int i=0;i<sizeArray-1;i++){
             if (result.getPriority()<tasks[i].getPriority()){
                 result=tasks[i];
@@ -46,7 +45,6 @@ public class Array {
     public Task getTaskWithHighestPriorityOfPoints(int points){
         Task[] selection=new Task[sizeArray];
         Task result=new Task();
-        result.setPriority(0);
         int it=0;
         for (int i=0;i<sizeArray-1;i++){
             if (tasks[i].getPoints()<points){

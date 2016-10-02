@@ -69,7 +69,6 @@ public class BinaryHeap {
     public Task getTaskWithHighestPriorityOfPoints(int points){
         Task[] selection=new Task[heapSize];
         Task result=new Task();
-        result.setPriority(0);
         int it=0;
         for (int i=0;i<heapSize;i++){
             if (heap[i].getPoints()<points){
