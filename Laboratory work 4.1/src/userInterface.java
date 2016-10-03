@@ -6,18 +6,18 @@ import java.util.Scanner;
 public class UserInterface {
     private int numberPoint;
     private Polygon line;
-    public void EqualPoint(Point newPoint){
-        ArrayList points=line.findPoints(newPoint);
+    public void equal(Point newPoint){
+        ArrayList <Point> points=line.findPoints(newPoint);
         for (int i=0;i<points.size();i++){
-            Point tempPoint=(Point)points.get(i);
+            Point tempPoint=points.get(i);
             System.out.println(tempPoint.getX()+","+tempPoint.getY()+"-");
         }
     }
-    public void LenghtLine(){
+    public void lenghtLine(){
         System.out.print("\nДлина линии: ");
-        System.out.printf("%.2f", line.lenghtPolygon());
+        System.out.printf("%.2f", line.lenght());
     }
-    public void InfoLine(){
+    public void infoLine(){
         System.out.print("Ваша линия: "+line.toString());
     }
     public Point addPoint(){
@@ -67,8 +67,8 @@ public class UserInterface {
                     choice = sc.nextInt();
                 }
             }
-            InfoLine();//
-            LenghtLine();//
+            infoLine();//
+            lenghtLine();//
             System.out.print("\nЗадайте свою точку: ");
             Point newPoint=addPoint();
             System.out.print("Задать точку плоскости? 1-да, 0-нет ");
@@ -80,7 +80,7 @@ public class UserInterface {
                     pointPlane = addPoint();
                 }
             }
-            System.out.print("Расстояние между вашей точкой и точкой плоскости: "+newPoint.calculateLenght(pointPlane));
+            System.out.print("Расстояние между вашей точкой и точкой плоскости: "+newPoint.Lenght(pointPlane));
             System.out.print("\n1- выйти из программы, 0-создать новую ломаную: ");
             if (sc.hasNextInt()) {
                 exit= sc.nextInt();

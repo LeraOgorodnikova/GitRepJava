@@ -9,7 +9,7 @@ public class Point {
         x=0f;
         y=0f;
     }
-    public float calculateLenght(Point newPoint){
+    public float Lenght(Point newPoint){
         return (float)Math.sqrt(Math.abs(Math.pow((newPoint.getX()-this.getX()), 2)) + Math.abs(Math.pow((newPoint.getY() - this.getY()),2)));
     }
     public float getX() {
@@ -38,8 +38,8 @@ public class Point {
         out += String.format("%.3f",this.y);
         return out;
     }
-    public boolean Equals(Point com1, Point com2){
-        if ((com1.getX()==com2.getX())&&(com1.getY()==com2.getY())){
+    public boolean equals(Point com1){
+        if ((com1.getX()==this.getX())&&(com1.getY()==this.getY())){
             return true;
         }
         else return false;

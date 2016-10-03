@@ -4,7 +4,7 @@
 import java.util.ArrayList;
 
 public class Polygon {
-    private ArrayList listPoint;
+    private ArrayList <Point> listPoint;
     Polygon(int lenght){
         listPoint=new ArrayList(lenght);
     }
@@ -12,12 +12,12 @@ public class Polygon {
         listPoint.add(newPoint);
     }
     public Point takePoint(int index){
-        return (Point)listPoint.get(index-1);
+        return listPoint.get(index-1);
     }
     public ArrayList findPoints(Point newPoint){
         ArrayList points=new ArrayList();
         for (int i=0;i<listPoint.size();i++){
-            Point p1=(Point)listPoint.get(i);
+            Point p1=listPoint.get(i);
             if ((p1.getX()==newPoint.getX())&&(p1.getY()==newPoint.getY())){
                 points.add(p1);
             }
@@ -27,17 +27,17 @@ public class Polygon {
     public String toString(){
         String out="";
         for (int i=0;i< listPoint.size();i++){
-            Point p1=(Point)listPoint.get(i);
+            Point p1=listPoint.get(i);
             out +=p1.toString();
             out += "-";
         }
         return out;
     }
-    public float lenghtPolygon(){
+    public float lenght(){
         float lenght=0f;
         for (int i=1;i<listPoint.size();i++){
-            Point p1=(Point)listPoint.get(i);
-            Point p2=(Point)listPoint.get(i-1);
+            Point p1=listPoint.get(i);
+            Point p2=listPoint.get(i-1);
             lenght+=Math.sqrt(Math.abs(Math.pow((p1.getX()-p2.getX()), 2)) + Math.abs(Math.pow((p1.getY() - p2.getY()),2)));
         }
         return lenght;
