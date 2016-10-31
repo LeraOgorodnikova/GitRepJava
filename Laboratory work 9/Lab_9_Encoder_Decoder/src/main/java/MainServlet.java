@@ -1,12 +1,9 @@
-/**
- * Created by 1 on 17.10.2016.
- */
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class MainServlet extends HttpServlet{
 
@@ -18,13 +15,13 @@ public class MainServlet extends HttpServlet{
         String dec=req.getParameter("stringDecoder");
           if ((req.getParameter("stringEncoder")!=null)||(req.getParameter("stringDecoder")!=null)) {
              if (req.getParameter("stringEncoder") == null) {
-                  string = (String) req.getParameter("stringDecoder");
-                  answer = Decoder.decode(string);
-                  //req.setAttribute("answer1", answer);
+                 // string = (String) req.getParameter("stringDecoder");
+                  answer = Decoder.decode(dec);
+                  req.setAttribute("answer1", answer);
               } else {
-                  string = (String) req.getParameter("stringEncoder");
-                  answer = Encoder.encode(string);
-                  //req.setAttribute("answer2", answer);
+                  //string = (String) req.getParameter("stringEncoder");
+                  answer = Encoder.encode(enc);
+                  req.setAttribute("answer2", answer);
               }
           }
 //        req.getRequestDispatcher("index.html").forward(req, resp);
