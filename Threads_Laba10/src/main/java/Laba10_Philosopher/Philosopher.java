@@ -23,7 +23,6 @@ public class Philosopher implements Runnable{
             } catch (InterruptedException e) {
             }
 
-            synchronized (locks) {
                 System.out.println("Philosopher " + number + " starts eating");
 
                 takeForks();
@@ -35,7 +34,6 @@ public class Philosopher implements Runnable{
                 System.out.println("Philosopher " + number + " ends eating");
 
                 putForks();
-            }
         }
     }
 
@@ -50,19 +48,23 @@ public class Philosopher implements Runnable{
 
     void takeForks() {
         // TODO synchronize
-        locks[fork1.number].lock();
-        locks[fork2.number].lock();
 
-        fork1.take(number);
-        fork2.take(number);
+        synchronized (locks) {
+            locks[fork1.number].lock();
+            locks[fork2.number].lock();
+
+            fork1.take(number);
+            fork2.take(number);
+        }
     }
 
     void putForks() {
         // TODO synchronize
-        fork1.put(number);
-        fork2.put(number);
 
-        locks[fork1.number].unlock();
-        locks[fork2.number].unlock();
+            fork1.put(number);
+            fork2.put(number);
+
+            locks[fork1.number].unlock();
+            locks[fork2.number].unlock();
     }
 }
