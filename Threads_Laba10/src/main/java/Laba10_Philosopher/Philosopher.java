@@ -49,13 +49,13 @@ public class Philosopher implements Runnable{
     void takeForks() {
         // TODO synchronize
 
-        synchronized (locks) {
+        //synchronized (locks) {
             locks[fork1.number].lock();
             locks[fork2.number].lock();
 
             fork1.take(number);
             fork2.take(number);
-        }
+        //}
     }
 
     void putForks() {
