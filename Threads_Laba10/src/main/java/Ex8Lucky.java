@@ -7,6 +7,7 @@ public class Ex8Lucky {
 //    static int[] count = {0};
 //     static int xCount=0;
     //static int[] array = {0,0};
+
     static AtomicInteger x = new AtomicInteger(0);
     static AtomicInteger count = new AtomicInteger(0);
 
